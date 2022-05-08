@@ -85,6 +85,114 @@
         "wires": []
     },
     {
+        "id": "6394a412.b9e004",
+        "type": "link out",
+        "z": "f784cdef.50b13",
+        "name": "Init",
+        "links": [
+            "db139afc.be3cc8"
+        ],
+        "x": 785,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "bd2da125.b95df",
+        "type": "inject",
+        "z": "f784cdef.50b13",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "6394a412.b9e004"
+            ]
+        ]
+    },
+    {
+        "id": "3b766e46.16b1ba",
+        "type": "tcp in",
+        "z": "f784cdef.50b13",
+        "name": "",
+        "server": "server",
+        "host": "",
+        "port": "51238",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "",
+        "topic": "",
+        "base64": false,
+        "x": 100,
+        "y": 500,
+        "wires": [
+            [
+                "f9e6068a.c751d"
+            ]
+        ]
+    },
+    {
+        "id": "2ddccc7b.946a7c",
+        "type": "debug",
+        "z": "f784cdef.50b13",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f9e6068a.c751d",
+        "type": "split",
+        "z": "f784cdef.50b13",
+        "name": "Split @",
+        "splt": "@",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 280,
+        "y": 500,
+        "wires": [
+            [
+                "868be337.f6d088",
+                "2ddccc7b.946a7c"
+            ]
+        ]
+    },
+    {
+        "id": "96e90a3d.1e69e8",
+        "type": "comment",
+        "z": "f784cdef.50b13",
+        "name": "@POSTBOX#POST:0#",
+        "info": "@POSTBOX#POST:0#",
+        "x": 640,
+        "y": 380,
+        "wires": []
+    },
+    {
         "id": "a60ba3f8.4ed4c8",
         "type": "link in",
         "z": "5dffcfdd.c79ad8",
@@ -281,15 +389,15 @@
         "id": "8763eb9b.f9b258",
         "type": "trigger",
         "z": "5dffcfdd.c79ad8",
-        "name": "WTD blink 70min",
+        "name": "WTD blink 120mins",
         "op1": "",
         "op2": "start",
         "op1type": "nul",
         "op2type": "str",
-        "duration": "70",
+        "duration": "2",
         "extend": true,
         "overrideDelay": false,
-        "units": "min",
+        "units": "hr",
         "reset": "",
         "bytopic": "all",
         "topic": "topic",
@@ -311,47 +419,6 @@
         "x": 270,
         "y": 740,
         "wires": []
-    },
-    {
-        "id": "6394a412.b9e004",
-        "type": "link out",
-        "z": "f784cdef.50b13",
-        "name": "Init",
-        "links": [
-            "db139afc.be3cc8"
-        ],
-        "x": 785,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "bd2da125.b95df",
-        "type": "inject",
-        "z": "f784cdef.50b13",
-        "name": "init",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 170,
-        "y": 660,
-        "wires": [
-            [
-                "6394a412.b9e004"
-            ]
-        ]
     },
     {
         "id": "db139afc.be3cc8",
@@ -390,73 +457,6 @@
         "wires": []
     },
     {
-        "id": "3b766e46.16b1ba",
-        "type": "tcp in",
-        "z": "f784cdef.50b13",
-        "name": "",
-        "server": "server",
-        "host": "",
-        "port": "51238",
-        "datamode": "stream",
-        "datatype": "utf8",
-        "newline": "",
-        "topic": "",
-        "base64": false,
-        "x": 100,
-        "y": 500,
-        "wires": [
-            [
-                "f9e6068a.c751d"
-            ]
-        ]
-    },
-    {
-        "id": "2ddccc7b.946a7c",
-        "type": "debug",
-        "z": "f784cdef.50b13",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "f9e6068a.c751d",
-        "type": "split",
-        "z": "f784cdef.50b13",
-        "name": "Split @",
-        "splt": "@",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 280,
-        "y": 500,
-        "wires": [
-            [
-                "868be337.f6d088",
-                "2ddccc7b.946a7c"
-            ]
-        ]
-    },
-    {
-        "id": "96e90a3d.1e69e8",
-        "type": "comment",
-        "z": "f784cdef.50b13",
-        "name": "@POSTBOX#POST:0#",
-        "info": "@POSTBOX#POST:0#",
-        "x": 640,
-        "y": 380,
-        "wires": []
-    },
-    {
         "id": "5e7316b7.1feb48",
         "type": "inject",
         "z": "5dffcfdd.c79ad8",
@@ -489,12 +489,12 @@
         "id": "1f62017f.7c2c1f",
         "type": "tcp out",
         "z": "5dffcfdd.c79ad8",
+        "name": "",
         "host": "192.168.1.109",
         "port": "51238",
         "beserver": "client",
         "base64": false,
         "end": true,
-        "name": "",
         "x": 490,
         "y": 180,
         "wires": []
@@ -529,7 +529,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3600",
+        "repeat": "1800",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -558,7 +558,8 @@
         "y": 640,
         "wires": [
             [
-                "ae396013.ff70c8"
+                "ae396013.ff70c8",
+                "f895e7e463806e74"
             ]
         ]
     },
@@ -577,6 +578,21 @@
         "statusType": "auto",
         "x": 1010,
         "y": 660,
+        "wires": []
+    },
+    {
+        "id": "f895e7e463806e74",
+        "type": "rpi-gpio out",
+        "z": "5dffcfdd.c79ad8",
+        "name": "",
+        "pin": "4",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 970,
+        "y": 720,
         "wires": []
     }
 ]
